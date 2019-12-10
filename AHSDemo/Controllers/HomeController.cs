@@ -20,7 +20,10 @@ namespace AHSDemo.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var context = new AHSDemoDbContext();
+            var hospitals = context.Hospitals.ToList();
+
+            return View(hospitals);
         }
 
         public IActionResult Privacy()
